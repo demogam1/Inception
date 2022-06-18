@@ -1,0 +1,66 @@
+version: "3.7"
+
+services:
+    nginx:
+        container_name: nginx
+        build: ./requirements/nginx/
+        image: nginx
+        depends_on:
+            - wordpress
+        volumes:
+            - data_n:/var/www/html/
+        restart: on-failure
+        ports:
+            - "443:443"
+        networks:
+            - docker_network
+        links:
+            - wordpress
+
+    wordpress:
+        container_name: wordpress
+        build: ./requirements/wordpress/
+        image: wordpress
+        # depends_on:
+            # - mariadb
+        volumes:
+            - data_n:/var/www/html/
+        restart: on-failure
+        env_file: .env
+        ports:
+            - "9000:9000"
+        networks:
+            - docker_network
+        # links:
+        #     - mariadb
+
+    # mariadb:
+    #     container_name: mariadb
+    #     build: ./requirements/mariadb/
+    #     image: mariadb
+    #     volumes:
+    #         - data_db:/var/lib/mysql/
+    #     restart: on-failure
+    #     env_file: .env
+    #     ports:
+    #         - "3306:3306"
+    #     networks:
+    #         - docker_network
+
+
+volumes:
+    data_n: 
+        driver: local
+        driver_opts:
+            type: 'none'
+            o: 'bind'
+            device: /Users/misaev/Desktop/Inception/srcs/requirements/nginx
+    data_db:
+        driver: local
+        driver_opts:
+            type: 'none'
+            o: 'bind'
+            device: /Users/misaev/Desktop/Inception/srcs/requirements/mariadb
+
+networks:
+    docker_network:
