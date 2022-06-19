@@ -5,6 +5,8 @@ services:
         container_name: nginx
         build: ./requirements/nginx/
         image: nginx
+        depends_on:
+            - wordpress
         volumes:
             - data_n:/var/www/html/
         restart: on-failure
