@@ -6,6 +6,6 @@ RUN apt-get install -y mariadb-server
 
 COPY ./exec.sh ./
 COPY ./50-server.cnf /etc/mysql/mariadb.conf.d/
-# COPY ./wordpress.sql ./
+COPY ./wordpress.sql ./
 
-CMD ["bash", "script.sh"]
+CMD ["bash", "exec.sh"]

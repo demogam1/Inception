@@ -12,8 +12,7 @@ RUN rm -rf wordpress-5.9.tar.gz
 
 EXPOSE 9000
 
-COPY ./wp-config.php ./var/www/html/wordpress/
-# RUN chown -R www-data:www-data var/www/html/wordpress
+COPY ./wp-config.php ./
 COPY ./exec.sh ./
 
 
