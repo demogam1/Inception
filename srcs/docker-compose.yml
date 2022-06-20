@@ -23,8 +23,6 @@ services:
             - data_n:/var/www/html/
         restart: on-failure
         env_file: .env
-        ports:
-            - "9000:9000"
         networks:
             - docker_network
    
