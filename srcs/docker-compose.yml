@@ -41,15 +41,15 @@ volumes:
     data_n: 
         driver: local
         driver_opts:
-            type: 'none'
-            o: 'bind'
-            device: /home/user42/Desktop/wordpress
+                type: 'none'
+                o: 'bind'
+                device: /home/user42/Desktop/wordpress
     data_db:
         driver: local
         driver_opts:
-            type: 'none'
-            o: 'bind'
-            device: /home/user42/Desktop/mariadb
+                type: 'none'
+                o: 'bind'
+                device: /home/user42/Desktop/mariadb
 
 networks:
     docker_network:
