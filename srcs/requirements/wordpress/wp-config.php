@@ -38,7 +38,9 @@ define( 'DB_CHARSET', 'utf8mb4' );
 define( 'DB_COLLATE', '' );
 
 define( 'WP_HOME', 'http://misaev.42.fr' );
+
 define( 'WP_SITEURL', 'https://misaev.42.fr' );
+
 /**#@+
  * Authentication unique keys and salts.
  *
