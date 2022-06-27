@@ -8,4 +8,6 @@ COPY ./exec.sh ./
 COPY ./50-server.cnf /etc/mysql/mariadb.conf.d/
 COPY ./wordpress.sql ./
 
+EXPOSE 3306
+
 CMD ["bash", "exec.sh"]
